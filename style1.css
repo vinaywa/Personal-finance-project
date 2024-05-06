@@ -86,3 +86,59 @@ body {
   {
 	  background-color:rgb(120,120,120);	
   }
+  #incomediv
+{
+	position:absolute;
+	float:left;
+	margin-left:10%;
+	color:green;
+	border:5px inset black;
+	margin-top:65px;
+	height:200px;
+	width:500px;
+	text-align:center;
+	background-color:black;
+}
+#expensediv
+{
+	position:absolute;
+	float:left;
+	margin-left:50%;
+	color:red;
+	border:5px inset black;
+	margin-top:65px;
+	height:200px;
+	width:500px;
+	text-align:center;
+	background-color:black;
+}
+#incomehead
+{
+	background-color:green;
+	text-shadow:none;
+	width:100%;
+	color:gold;
+	font-family:bodoni mt black;
+	margin-top:0px;
+	font-size:35px;
+	padding:5px 0px 5px 0px;
+}
+#expensehead
+{
+	margin-top:0px;
+	font-size:35px;
+	padding:5px 0px 5px 0px;
+	background-color:red;
+	text-shadow:none;
+	color:lightgray;
+	width:100%;
+	font-family:bodoni mt black;
+}
+#expensehead a
+{
+	background-color:red;
+	text-shadow:none;
+	color:lightgray;
+	width:100%;
+	font-family:bodoni mt black;
+}
