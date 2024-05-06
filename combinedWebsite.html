@@ -84,4 +84,55 @@
 </center>
 
 </div> 
+<hr width='100%' height='30px' id='hr2' style='position:relative;margin-top:300px;border:none;height:15px;margin-bottom:50px;background-color:#d89a0b;'>
+ <br><br>
+ 
+<div class='transip' id='ip'>
+
+	<h1 id='transid' >EXPENDITURE DETAILS</h1>
+	<br><br>
+	
+<form method='post' id="expenditureForm">
+	<center>
+	
+<table  cellspacing='5px' cellpadding="10px" id='savingstableip'>
+	<tr>
+		<td>Transaction Name*: </td>
+		<td>
+			<select name='description' >
+				<option selected>Select transaction</option>
+				<option>Bills</option>
+				<option>Fuel</option>
+				<option>Electricity</option>
+				<option>Food</option>
+				<option>Education</option>
+				<option>Transportation</option>
+				<option>Miscellaneous</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Amount spent* : </td>
+		<td>
+			<input type='number' name='amount' placeholder='Enter amount in INR' autofocus required />
+		</td>
+	</tr>
+	<!--<tr>
+		<td>Date* : </td>
+		<td>
+			<input type='date' name='date' placeholder='Enter date' autofocus required />
+		</td>
+	</tr>-->
+	
+	<tr style='padding-left:20px'>
+		<td colspan='2' style='text-align:center'>
+			<input type='submit' name='submit' value='SUBMIT' id='subres'/>
+			<input type='reset' name='reset' value='RESET' id='subres1'/>
+		</td>
+	</tr>
+	
+	</table>
+	</center>
+	</form>
+	</div>
 </body>

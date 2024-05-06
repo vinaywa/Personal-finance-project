@@ -142,3 +142,66 @@ body {
 	width:100%;
 	font-family:bodoni mt black;
 }
+#hr2
+{
+		position: relative;
+        top: 150px;
+        border: none;
+        height: 15px;
+        background: red;
+        margin-bottom: 50px;
+}
+.transip
+{
+    position:relative;
+	text-align:center;
+	float:left;
+	margin-top:160px;
+	margin-left:15%;
+	margin-bottom:50px;
+	color:green;
+	font-family:bodoni;
+	padding:35px;
+	background-image:radial-gradient(red 50%,black);	
+}
+#transid
+{
+	color:lightgray;
+	font-family:Cambria;
+	text-shadow:none;
+}
+#savingstableip
+{
+	padding-left:5px;
+	border:2px dashed red;
+	background-color:yellow;
+}
+#savingstableip td:hover
+{
+	background:yellow;
+	font-weight:normal;
+}
+#subres
+{
+	background-color:black;
+	color:white;
+	padding:5px;
+	width:100px;
+}
+#subres1
+{
+	background-color:black;
+	color:white;
+	padding:5px;
+	width:100px;
+}
+#subres:hover
+{
+	color:lightgreen;
+	background-color:blue;
+}
+#subres1:hover
+{
+	color:lightgreen;
+	background-color:red;
+}
