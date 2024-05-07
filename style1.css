@@ -273,3 +273,127 @@ text-shadow: 5px 2px 3px red;
 	margin-right: 10px;
 	text-shadow:none;
   }
+  #hr3
+  {
+		  position: relative;
+		  top:150px;
+		  border: none;
+		  height: 15px;
+		  background: gray;
+		  margin-bottom: 50px;
+  }
+
+  #fuel
+{
+	float:left;background-color:red;height:10px;width:10px;
+}
+.key
+{
+height:200px;
+width:200px;
+float:left;
+position:absolute;
+margin-top:70px;
+margin-left:700px;
+background-color:black;
+color:white;
+padding:10px 15px 30px 30px;
+border:1px dashed red
+}
+#graphsp
+{
+	float:left;position:relative;margin-top:-6px;
+}
+#electricity
+{
+	float:left;background-color:yellow;height:10px;width:10px;
+}
+#bills
+{
+	float:left;background-color:green;height:10px;width:10px;
+}
+#misc
+{
+	float:left;background-color:blue;height:10px;width:10px;
+}
+#bar_h1
+{
+color:blue;
+width:460px;
+font-family:Cambria;
+text-shadow:none;
+margin-top:150px;
+margin-left:440px;
+background-color:yellow;
+padding:10px;
+padding-left:10px;
+border:1px dashed red;
+text-align:center;
+}
+.container {
+    background: var(--background1);
+    position: relative;
+    display: flex;
+    width: 480px;
+    align-items: flex-end;
+    height: 410px;
+	padding-bottom:10px;
+	margin-top:-22px;
+	margin-left:440px;
+}
+.container
+{
+width:100%;
+background-color:#ddd;
+border:1px solid black;
+}
+.percent {
+    background: var(--background1);
+    position: absolute;
+    border-right: 2px solid var(--text);
+    color: var(--text);
+    width: 50px;
+    height: 390px;
+    display: flex;
+    /* padding-bottom: 20px; */
+    flex-direction: column;
+    justify-content: space-between;
+}
+.percent span {
+    font-size: 12px;
+    height: 12px;
+    line-height: 3px;
+    text-align: right;
+    padding-right: 4px;
+    font-weight: 600;
+}
+
+.options {
+    position: relative;
+    left: 50px;
+    background: var(--background1);
+    width: 407px;
+    color: var(--text);
+    border-top: 2px solid var(--text);
+    display: flex;
+    justify-content: space-between;
+  transition: 1s;
+}
+.options::before
+{
+	left:900px;
+}
+#back_to_top{
+	position:fixed;
+	right:0px;
+	bottom:50px;
+	padding:10px;
+	background-color:gray;
+	opacity:0.5;
+	border-radius:10px 0px 0px 10px;
+	cursor:pointer;
+}
+#back_to_top img{
+	width:30px;
+	height:30px;
+}
