@@ -330,6 +330,17 @@ padding-left:10px;
 border:1px dashed red;
 text-align:center;
 }
+.container
+{
+width:100%;
+background-color:#ddd;
+border:1px solid black;
+}
+:root {
+    --background0: rgb(0,0,0);
+    --background1: #22262f;
+    --text: #fff;
+}
 .container {
     background: var(--background1);
     position: relative;
@@ -340,12 +351,6 @@ text-align:center;
 	padding-bottom:10px;
 	margin-top:-22px;
 	margin-left:440px;
-}
-.container
-{
-width:100%;
-background-color:#ddd;
-border:1px solid black;
 }
 .percent {
     background: var(--background1);
@@ -383,6 +388,48 @@ border:1px solid black;
 {
 	left:900px;
 }
+.opt1::after, .opt2::after, .opt3::after, .opt4::after, .opt5::after, .opt6::after {
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: 27px;
+    margin-left: 8px;
+    /* background: 
+    linear-gradient(#ff5b66,#ff8c38); */
+    width: 35px;
+    transition: 1s;
+}
+.opt1::after{
+    height: calc((363px / 100) * 50);
+	background-color:#007bff;
+}
+.opt2::after{
+    height: calc((363px / 100) * 80);
+	background-color: green;
+}
+.opt3::after{
+    height: calc((363px / 100) * 40);
+	background-color: lightgray;
+}
+.opt4::after{
+    height: calc((363px / 100) * 80);
+	background-color: pink;
+}
+.opt5::after{
+    height: calc((363px / 100) * 60);
+	background-color: orange;
+}
+.opt6::after{
+    height: calc((363px / 100) * 32.31077);
+	background-color: violet;
+}
+.opt1:hover,.opt2:hover,.opt3:hover,.opt4:hover,.opt5:hover,.opt6:hover
+{
+opacity:0.4;
+font-size:16px;
+}
+
+
 #back_to_top{
 	position:fixed;
 	right:0px;
@@ -396,4 +443,36 @@ border:1px solid black;
 #back_to_top img{
 	width:30px;
 	height:30px;
+}
+.pie
+{
+height:200px;
+width:200px;
+float:left;
+border-radius:100%;
+background-image:repeating-conic-gradient(
+	from 0deg,
+	red 0deg 55.38deg,
+	yellow 55.38deg 193.84deg,
+	green 193.84deg 249.22deg,
+	blue 249.22deg 360deg
+/* red 0deg,red 45deg,
+yellow 45deg,yellow 135deg,
+green 135deg,green 225deg,
+blue 225deg, blue 360deg */ );
+	margin-top:100px;
+	margin-left:330px;
+}
+#footer
+{
+	background-color:black;
+	height:40px;
+	text-align:center;
+	margin-top:15%;
+	padding-top:25px;
+	padding-bottom:8px;
+	font-weight:bold;
+	margin-bottom:0px;
+	color:rgb(194, 245, 9);
+	font-family:verdana;
 }
