@@ -476,3 +476,22 @@ blue 225deg, blue 360deg */ );
 	color:rgb(194, 245, 9);
 	font-family:verdana;
 }
+.saveip
+{
+	text-align:center;
+	float:left;
+	margin-top:27px;
+	margin-left:10%;
+	margin-bottom:60px;
+	color:green;
+	font-family:bodoni;
+	padding:60px;
+	background-image:radial-gradient(black 50%,green);
+}
+#saveid
+{
+	color:lightblue;
+	margin-left:5px;
+	text-shadow:none;
+	font-family:Cambria;
+}

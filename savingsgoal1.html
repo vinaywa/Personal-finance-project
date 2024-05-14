@@ -61,6 +61,32 @@
   <div id='cursoripdis'>
     <a href="#top_of_page" id='ipdis'>Input a goal</a><br>
     <a href="#hr1" id='ipdis'>Savings' status</a>
+	</div>
+	<div class='saveip' id='ip'>
+		<h1 id='saveid' >NEW SAVINGS GOAL</h1>
+		<form method='post' id="NewSavings">
+			<table  cellspacing='5px' cellpadding="10px" id='savingstableip'>
+				<tr>
+					<td>Description*: </td>
+					<td>
+					<input type='text' name='description' placeholder='Your Saving Goal 😊' autofocus required />
+					</td>
+				</tr>
+				<tr>
+					<td>Amount to save* : </td>
+					<td>
+						<input type='number' name='amount' placeholder='Enter amount in INR' autofocus required />
+					</td>
+				</tr>
+				<tr style='padding-left:20px'>
+					<td colspan='2'>
+						<input type='submit' name='submit' value='SUBMIT' id='subres'/>
+						<input type='reset' name='reset' value='RESET' id='subres1'/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
   </div>
 </body>
 </html>
