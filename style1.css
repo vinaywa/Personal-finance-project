@@ -165,6 +165,11 @@ text-shadow: 5px 2px 3px red;
 	width:100%;
 	font-family:bodoni mt black;
 }
+td:hover
+{
+	background:gray;
+	font-weight:bold;
+}
 #hr2
 {
 		position: relative;
