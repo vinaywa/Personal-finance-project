@@ -500,3 +500,23 @@ blue 225deg, blue 360deg */ );
 	text-shadow:none;
 	font-family:Cambria;
 }
+#cursoripdis{
+	position:fixed;
+	right:0px;
+	top:31%;
+	padding:10px;
+	background-color:rgb(0,20,0);
+	opacity:0.5;
+	color:blue;
+	cursor:pointer;
+	z-index:1;
+}
+#ipdis
+{
+	color:orange;
+}
+#ipdis:hover
+{
+	background-color:lightblue;
+	color:green;
+}
