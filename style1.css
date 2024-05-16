@@ -520,3 +520,28 @@ blue 225deg, blue 360deg */ );
 	background-color:lightblue;
 	color:green;
 }
+.increasesaveip
+{
+	position:relative;
+	text-align:center;
+	float:left;
+	margin-top:27px;
+	margin-left:6%;
+	margin-bottom:60px;
+	color:green;
+	font-family:bodoni;
+	padding:60px;
+	background-image:radial-gradient(black 50%,blueviolet);
+	padding-left:80px;
+}
+#increasetableip
+{
+	border:2px dashed red;
+	background-color:yellow;
+	margin-left:0px;
+}
+#increasetableip td:hover
+{
+	background:yellow;
+	font-weight:normal;
+}
