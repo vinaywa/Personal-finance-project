@@ -545,3 +545,51 @@ blue 225deg, blue 360deg */ );
 	background:yellow;
 	font-weight:normal;
 }
+#hr1
+{
+		position: relative;
+        top: 20px;
+        border: none;
+        height: 15px;
+        background: red;
+        margin-bottom: 50px;
+}
+.savetable
+{
+	position:relative;
+	width:70%;
+	color:white;
+	text-align:center;
+	float:left;
+	margin-top:100px;
+	margin-left:10%;
+	margin-bottom:2%;
+	font-family:bodoni;
+	padding:60px;
+	background-color:black;
+}
+.savetable tr
+{
+	background-color:rgb(120, 194, 91);
+}
+
+#h {
+	text-decoration: none;
+	color:rgb(20, 250, 240);
+	font-family: Cambria;
+	display: inline-block;
+	margin-right: 10px;
+	text-shadow:none;
+  }
+  .skills
+{
+text-align:right;
+color:black;
+background-color:lightgray;
+border-radius:5px;
+}
+.car
+{
+background-color:#04AA6D;
+border-radius:5px;
+}
