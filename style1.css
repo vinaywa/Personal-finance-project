@@ -593,3 +593,16 @@ border-radius:5px;
 background-color:#04AA6D;
 border-radius:5px;
 }
+#footersave {
+    position: relative;
+    background-color: black;
+    height: 40px;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    color: rgb(194, 245, 9);
+    font-family: verdana;
+    clear: both; /* Add this to ensure the footer is below floated elements */
+    margin-top: 0px; /* Adjust as needed to provide space between content and footer */
+}
