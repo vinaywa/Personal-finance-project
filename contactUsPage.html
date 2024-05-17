@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <script>
+            function cancelForm() {
+              alert("Form canceled");
+            }
+          
+            function submitForm() {
+        var contactForm = document.getElementById('contactForm');
+        
+        // Check if the form is valid before submitting
+        if (contactForm.checkValidity()) {
+          alert("Form submitted");
+          window.location.href = 'index.html';
+        } else {
+          // If the form is not valid, you can display an error message or handle it accordingly
+          alert("Form is not valid. Please fill in all required fields.");
+        }
+      }
+      
+      // Wait for the DOM to be ready
+      document.addEventListener('DOMContentLoaded', function () {
+        // Find the form by its ID
+        var contactForm = document.getElementById('contactForm');
+      
+        // Add a submit event listener to the form
+        contactForm.addEventListener('submit', function (event) {
+          // Prevent the default form submission behavior
+          event.preventDefault();
+      
+          // Call your submitForm function
+          submitForm();
+        });
+      });
+          </script>
+        </head>
+      <body>
+      <div class="background">
+        <div class="container">
+          <div class="screen">
+            
+            <div class="screen-body">
+              <div class="screen-body-item left">
+                <div class="app-title">
+                  <span>CONTACT</span>
+                  <span>US</span>
+                </div>
+                <div class="app-contact">CONTACT INFO : +91 123 456 7890</div>
+              </div>
+              <form id="contactForm"  method="post">
+              <div class="screen-body-item">
+                <div class="app-form">
+                  <div class="app-form-group">
+                    <input class="app-form-control" type="TEXT" placeholder="NAME" value="YUVRAJ SINGH" autofocus required/>
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" type="EMAIL" placeholder="EMAIL" autofocus required/>
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" type="TEL" placeholder="CONTACT NO" autofocus required/>
+                  </div>
+                  <div class="app-form-group message">
+                    <input class="app-form-control" type='TEXT' placeholder="MESSAGE" autofocus required/>
+                  </div>
+                  <div class="app-form-group buttons">
+                    <button class="app-form-button" type="button" onclick="alert('Form canceled');">CANCEL</button>
+                    <button class="app-form-button" type="submit"  onclick="submitForm();">SEND</button>
+                  </div>
+              </form>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      </body>
+      </html>
