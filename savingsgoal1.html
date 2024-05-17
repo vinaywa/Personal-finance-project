@@ -22,15 +22,15 @@
 		
 	  <ul id='links'>
 		<li id='linkel'>
-            <a href='combinedWebsite.html#hr1'>Balance</a>
+            <a href='index.html#hr1'>Balance</a>
           </li>
       
           <li id='linkel'>
-            <a href='combinedWebsite.html#hr2'>Transaction History</a>
+            <a href='index.html#hr2'>Transaction History</a>
           </li>
       
           <li id='linkel'>
-            <a href='combinedWebsite.html#hr3'>Graphs</a>
+            <a href='index.html#hr3'>Graphs</a>
           </li>
 		  
 		  <li id='linkel'>
@@ -57,7 +57,9 @@
 		  </li>
 		  
 	  </ul>
-  </nav> 
+  </nav>
+  
+  <div>
   <div id='cursoripdis'>
     <a href="#top_of_page" id='ipdis'>Input a goal</a><br>
     <a href="#hr1" id='ipdis'>Savings' status</a>
@@ -87,6 +89,36 @@
 			</table>
 		</form>
 	</div>
-  </div>
+
+
+	<!--Form for adding money to a savings goal-->
+<div class='increasesaveip' id='ip2'>
+	<h1 style='color:lightblue;margin-left:0px;text-shadow:none;font-family:Cambria;'>
+		ADD MONEY TO A GOAL
+	</h1>
+	<form method='post' id="AddSavings">
+		<table  cellspacing='5px' cellpadding="10px" id='increasetableip'>
+			<tr>
+				<td>Name of Goal*: </td>
+				<td>
+					<input type='text' name='description' id="goalName" placeholder='Enter name of goal' autofocus required />
+				</td>
+			</tr>
+			<tr>
+				<td>Amount to add* : </td>
+				<td>
+					<input type='number' name='amount' id="amountToAdd" placeholder='Enter amount in INR' autofocus required />
+				</td>
+			</tr>
+			<tr style='padding-left:20px'>
+				<td colspan='2'>	
+					<input type='submit' name='submit' value='SUBMIT' id='subres'/>
+					<input type='reset' name='reset' value='RESET' id='subres1'/>
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div>
+</div>
 </body>
 </html>
