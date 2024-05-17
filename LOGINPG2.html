@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="styleLOGIN.css">
+    <style>
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 20%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form">
+        <div class="imgcontainer">
+            <img src="avatar.png" alt="Avatar" class="avatar">
+        </div>
+        <h3>Login Form</h3>
+        <form id="loginForm" onsubmit="return validateLogin()">
+            <input type="email" id="email" name="Email" placeholder="Email" autofocus required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+    </div>
+
+    <script>
+        // Hardcoded correct credentials for demonstration purposes
+        var correctEmail = "abc@gmail.com";
+        var correctPassword = "abc123";
+
+        function validateLogin() {
+    var enteredEmail = document.getElementById("email").value;
+    var enteredPassword = document.getElementById("password").value;
+
+    // Check if the entered credentials are correct
+    if (enteredEmail === correctEmail && enteredPassword === correctPassword) {
+        alert("Login successful!");
+
+        // Set local storage item and then redirect after a short delay
+        localStorage.setItem('loggedIn', true);
+        setTimeout(function () {
+            window.location.href = "index.html";
+        }, 500); // 500 milliseconds delay, adjust as needed
+
+        return false; // Prevent form submission
+    } else {
+        alert("Invalid credentials. Please try again.");
+        return false; // Prevent form submission
+    }
+}
+
+    </script>
+</body>
+</html>
