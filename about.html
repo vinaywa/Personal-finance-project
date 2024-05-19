@@ -6,6 +6,54 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel='stylesheet' type='text/css' href='style1.css'>
+<style>
+  footer
+  {
+    background-color:black;
+    height:3.75rem;
+    text-align:center;
+    margin-top:20%;
+    padding-top:2.0625rem;
+    font-weight:bold;
+    margin-bottom:0rem;
+    color:rgb(194, 245, 9);
+    font-family:verdana;
+  }
+  #about
+  {
+  display:flex;
+  position:relative;
+  left:300px;
+  padding:50px 30px 30px 30px;
+  top:80px;
+  width:50%;
+  height:200px;
+  background-color:black;
+  color:white;
+  text-align:center;
+  border:3px dashed blue;
+  }
+  #heading
+  {
+  border-right:3px solid white;
+  padding:20px;
+  }
+  </style>
+  <script>
+     
+    if (!localStorage.getItem('loggedIn')) {
+        window.location.href = 'LOGINPG2.html';
+    }
+  
+  
+  // Function to log out and redirect to the login page
+  function logout() {
+    localStorage.removeItem('loggedIn');
+    window.location.href = 'LOGINPG2.html';
+  }
+  </script>
+  
+</head>
 <body bgcolor="navy">
     <header id='top_of_page'>
         <center><h1>Personal Finance Manager</h1></center>
