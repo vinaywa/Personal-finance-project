@@ -142,5 +142,82 @@ pieCanvas.style.backgroundImage = conicGradient;
 updateExistingPieChart(window.pieChart, categoryExpenditures);
 
 }
+// Function to update an existing pie chart
+function updateExistingPieChart(chart, categoryExpenditures) {
+    chart.data.datasets[0].data = [
+        categoryExpenditures.fuel,
+        categoryExpenditures.electricity,
+        categoryExpenditures.bills,
+        categoryExpenditures.miscellaneous
+    ];
+    chart.update();
+}
+
+// Function to create a new pie chart
+function createNewPieChart(ctx, categoryExpenditures) {
+    window.pieChart = new Chart(ctx, {
+        type: 'doughnut', // or 'pie'
+        data: {
+            labels: ['Fuel', 'Electricity', 'Bills', 'Miscellaneous'],
+            datasets: [{
+                data: [
+                    categoryExpenditures.fuel,
+                    categoryExpenditures.electricity,
+                    categoryExpenditures.bills,
+                    categoryExpenditures.miscellaneous
+                ],
+                backgroundColor: ['#FF5733', '#FFD700', '#36A2EB', '#FF6347'],
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '40%', // Adjust the cutout as needed
+        }
+    });
+}
+
+    // Function to calculate the expenditure for a specific category
+// Function to calculate the expenditure for a specific category
+function calculateCategoryExpenditure(table) {
+    var rowCount = table.rows.length;
+    var fuelExpenditure = 0;
+    var electricityExpenditure = 0;
+    var billsExpenditure = 0;
+    var miscellaneousExpenditure = 0;
+
+    for (var i = 1; i < rowCount; i++) {
+        var cells = table.rows[i].cells;
+        var date = cells[3].innerHTML;
+        var amountSpent = cells[1].innerHTML.replace('₹', '').trim();
+        var transactionCategory = cells[0].innerHTML.trim();
+
+        // Assuming date format is 'YYYY-MM-DD'
+        var month = parseInt(date.split('-')[1]);
+
+        // Check if the transaction is for December and belongs to the specified category
+        if (month === 5 && amountSpent !== '-') {
+            if (transactionCategory === 'Fuel') {
+                fuelExpenditure += parseInt(amountSpent);
+            } else if (transactionCategory === 'Electricity') {
+                electricityExpenditure += parseInt(amountSpent);
+            } else if (transactionCategory === 'Bills') {
+                billsExpenditure += parseInt(amountSpent);
+            } else if (transactionCategory === 'Miscellaneous') {
+                miscellaneousExpenditure += parseInt(amountSpent);
+            } else {
+                continue;
+            }
+        }
+    }
+
+    // Return an object containing the category expenditures
+    return {
+        fuel: fuelExpenditure,
+        electricity: electricityExpenditure,
+        bills: billsExpenditure,
+        miscellaneous: miscellaneousExpenditure
+    };
+}
 
 });
