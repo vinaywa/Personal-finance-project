@@ -8,6 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap CSS -->
   <link rel='stylesheet' type='text/css' href='style1.css'>
+  <script src="savings_script1.js" defer></script>
+  <script>
+   
+	if (!localStorage.getItem('loggedIn')) {
+		window.location.href = 'LOGINPG2.html';
+	}
+
+
+// Function to log out and redirect to the login page
+function logout() {
+	localStorage.removeItem('loggedIn');
+	window.location.href = 'LOGINPG2.html';
+}
+</script>
 </head>
 <body bgcolor="navy">
     <header id='top_of_page'>
