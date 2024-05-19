@@ -39,6 +39,39 @@ document.getElementById('expenditureForm').addEventListener('submit', function (
     document.forms['expenditureForm'].reset();
     
 });
+document.getElementById('moneyReceivedForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the form from submitting in the traditional way
+
+    // Get form values
+    var earningSource = document.forms['moneyReceivedForm']['description'].value;
+    var amountReceived = document.forms['moneyReceivedForm']['amount'].value;
+
+    var currentDate = new Date();
+
+    // Get individual components of the date
+    var year = currentDate.getFullYear();
+    var month = currentDate.getMonth() + 1; // Note: Months are zero-indexed, so we add 1
+    var day = currentDate.getDate();
+
+    // Format the date as a string (e.g., "YYYY-MM-DD")
+    var formattedDate = year + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day);
+    var dateReceived = formattedDate;
+
+    // Validate form values
+    if (earningSource === '' || amountReceived === '') {
+        alert('Please fill in all the fields.');
+        return;
+    }
+
+    // Add a new row to the transaction table for money received
+    addRowToTable(earningSource, '-', amountReceived, dateReceived, 'income');
+
+    // Save transactions to local storage
+    saveTransactions();
+
+    // Reset the form
+    document.forms['moneyReceivedForm'].reset();
+});
 
 // Function to add a new row to the transaction table
 function addRowToTable(description, amountSpent, amountReceived, date, transactionType) {
