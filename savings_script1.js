@@ -86,6 +86,46 @@ div.appendChild(innerDiv);
 
 return div.outerHTML;
 }
+function updateSavingsGoal(goalName, amountToAdd) {
+    var tableRows = document.querySelectorAll('#savingsTable tr:not(:first-child)');
+
+    tableRows.forEach(function (row) {
+        var cells = row.querySelectorAll('td');
+        if (cells[0].innerHTML === goalName) {
+            var currentAmountSaved = parseCurrency(cells[2].innerHTML);
+            var newAmountSaved = currentAmountSaved + parseFloat(amountToAdd);
+            cells[2].innerHTML = formatCurrency(newAmountSaved);
+            var totalAmount = parseCurrency(cells[1].innerHTML);
+            var completionStatus = (newAmountSaved / totalAmount) * 100;
+
+            // Update completion status and progress bar
+            cells[3].innerHTML = createCompletionStatusDiv(completionStatus);
+
+            // Check if completion status is 100%
+            if (completionStatus >= 100) {
+                // Display a message
+                alert('Congratulations! You can now buy ' + cells[0].innerHTML);
+
+                // Remove the row from the table
+                row.remove();
+            }
+        }
+    });
+
+    // Save savings goals to local storage
+    saveSavingsGoals();
+}
+
+
+// Function to parse currency values and convert to float
+function parseCurrency(currencyString) {
+    return parseFloat(currencyString.replace(/[^0-9.-]+/g, ''));
+}
+
+// Function to format a number as currency
+function formatCurrency(amount) {
+    return '&#8377;' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+}
 
 
 });
