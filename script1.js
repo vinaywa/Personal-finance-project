@@ -372,5 +372,15 @@ function loadTransactions() {
         updateIncomeExpenseDivs();
     }
 }
+   // Function to clear existing rows from the transaction table
+   function clearTransactionTable() {
+    var table = document.getElementById('transactionTable');
+    var rowCount = table.rows.length;
+
+    // Start from the last row and delete each row until the first row is reached
+    for (var i = rowCount - 1; i > 0; i--) {
+        table.deleteRow(i);
+    }
+}
 
 });
