@@ -127,5 +127,39 @@ function formatCurrency(amount) {
     return '&#8377;' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
+function saveSavingsGoals() {
+    var tableRows = document.querySelectorAll('#savingsTable tr:not(:first-child)');
+    var savingsGoals = [];
+
+    tableRows.forEach(function (row) {
+        var cells = row.querySelectorAll('td');
+        savingsGoals.push({
+            description: cells[0].innerHTML,
+            amount: parseCurrency(cells[1].innerHTML),
+            amountSaved: parseCurrency(cells[2].innerHTML),
+            completionStatus: parseFloat(cells[3].querySelector('div').style.width),
+        });
+    });
+
+    // Save savings goals to local storage
+    localStorage.setItem('savingsGoals', JSON.stringify(savingsGoals));
+}
+
+// Function to load savings goals from local storage on page load
+function loadSavingsGoals() {
+    var savingsGoals = localStorage.getItem('savingsGoals');
+
+    if (savingsGoals) {
+        savingsGoals = JSON.parse(savingsGoals);
+
+        // Clear existing rows from the table
+        clearSavingsTable();
+
+        savingsGoals.forEach(function (goal) {
+            addRowToSavingsTable(goal.description, formatCurrency(goal.amount), formatCurrency(goal.amountSaved));
+        });
+    }
+}
+
 
 });
