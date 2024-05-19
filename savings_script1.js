@@ -160,6 +160,16 @@ function loadSavingsGoals() {
         });
     }
 }
+// Function to clear existing rows from the savings table
+function clearSavingsTable() {
+    var table = document.getElementById('savingsTable');
+    var rowCount = table.rows.length;
+
+    // Start from the last row and delete each row until the first row is reached
+    for (var i = rowCount - 1; i > 0; i--) {
+        table.deleteRow(i);
+    }
+}
 
 
 });
