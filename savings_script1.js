@@ -50,6 +50,42 @@ document.addEventListener('DOMContentLoaded', function () {
      document.forms[1].reset();
  });
 
+// Function to add a new row to the savings goal table
+function addRowToSavingsTable(description, amount, amountSaved) {
+    var table = document.getElementById('savingsTable');
+
+    // Create a new row
+    var newRow = table.insertRow(1);
+
+    // Insert cells
+    var descriptionCell = newRow.insertCell(0);
+    var amountCell = newRow.insertCell(1);
+    var amountSavedCell = newRow.insertCell(2);
+    var completionStatusCell = newRow.insertCell(3);
+
+    // Set cell values
+    descriptionCell.innerHTML = description;
+    amountCell.innerHTML = '&#8377;' + amount;
+    amountSavedCell.innerHTML = '&#8377;' + amountSaved;
+    var completionStatus = (amountSaved / amount) * 100;
+    completionStatusCell.innerHTML = createCompletionStatusDiv(completionStatus);
+}
+
+// Function to create a completion status div
+// Function to create a completion status div
+function createCompletionStatusDiv(completionStatus) {
+var div = document.createElement('div');
+div.classList.add('skills');
+
+var innerDiv = document.createElement('div');
+innerDiv.classList.add('car');
+innerDiv.style.width = completionStatus + '%';
+
+innerDiv.textContent = completionStatus.toFixed(2) + '%';
+div.appendChild(innerDiv);
+
+return div.outerHTML;
+}
 
 
 });
