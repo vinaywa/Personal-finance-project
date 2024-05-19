@@ -219,5 +219,103 @@ function calculateCategoryExpenditure(table) {
         miscellaneous: miscellaneousExpenditure
     };
 }
+function updateBarChart() {
+    // Get the total expenditure from the expensediv
+    var totalExpenditureElement = document.getElementById('expensediv').querySelector('strong');
+    var totalExpenditure = parseFloat(totalExpenditureElement.innerHTML.replace('₹', '').trim());
+    // Calculate the height of the bar based on the formula: ((363px/100)*(number of divisions))
+    var barHeight = parseInt((363 / 100) * (totalExpenditure / 433.3)); // Adjusted formula
+
+    // Get the context of the bar chart canvas element
+    // var barCtx = document.getElementById('barChartCanvas'); // Updated ID
+    // Create the bar chart
+    
+    window.barChart.data.datasets[0].data[5] = barHeight; // Update data for December
+    window.barChart.update();
+    
+
+    // Update the title of the Dec graph
+    var decemberOption = document.querySelector('.opt6'); // Updated class
+    decemberOption.title = '₹' + totalExpenditure;
+
+    // Update the height of the bar in the graph
+    var opt6After = document.querySelector('.opt6::after');
+    opt6After.style.height = barHeight + 'px';
+}
+
+
+
+
+
+// Function to dynamically calculate December's monthly expenditure
+/*function calculateDecemberExpenditure(table) {
+    var rowCount = table.rows.length;
+    var decemberExpenditure = 0;
+
+    for (var i = 1; i < rowCount; i++) {
+        var cells = table.rows[i].cells;
+        var date = cells[3].innerHTML;
+        var amountSpent = cells[1].innerHTML.replace('₹', '').trim();
+
+        // Assuming date format is 'YYYY-MM-DD'
+        var month = parseInt(date.split('-')[1]);
+
+        if (month === 12 && amountSpent !== '-') {
+            decemberExpenditure += parseInt(amountSpent);
+        }
+    }
+    var options = document.querySelector('#expensediv.center');
+    var decemberOption = (document.querySelector('#barChart.options')).lastElementChild;
+    decemberOption.title = '&#8377;' + decemberExpenditure.toFixed(2);
+
+    // Update the height of the bar in the graph
+    decemberOption.style.height = (options).firstElementChild + 'px';
+    return decemberExpenditure;
+}*/
+
+    // Function to check if a row with the same data already exists
+    function isDuplicateRow(description, amountSpent, amountReceived, date) {
+        var table = document.getElementById('transactionTable');
+        var rowCount = table.rows.length;
+
+        for (var i = 1; i < rowCount; i++) {
+            var cells = table.rows[i].cells;
+
+            var existingDescription = cells[0].innerHTML;
+            var existingAmountSpent = cells[1].innerHTML.replace('₹', '').trim();
+            var existingAmountReceived = cells[2].innerHTML.replace('₹', '').trim();
+            var existingDate = cells[3].innerHTML.trim();
+
+            if (
+                existingDescription === description &&
+                existingAmountSpent === amountSpent &&
+                existingAmountReceived === amountReceived &&
+                existingDate === date
+            ) {
+                return true; // Row with the same data already exists
+            }
+        }
+
+        return false; // No duplicate row found
+    }
+
+    function updateIncomeExpenditure(amountSpent, amountReceived, transactionType) {
+        // Get the current income and expenditure values
+        var currentIncome = parseFloat(document.getElementById('incomediv').querySelector('strong').innerHTML.replace('₹', '').trim());
+        var currentExpenditure = parseFloat(document.getElementById('expensediv').querySelector('strong').innerHTML.replace('₹', '').trim());
+
+        // Update income and expenditure based on the transaction type
+        if (transactionType === 'expenditure' && amountSpent !== '-') {
+            currentExpenditure += parseFloat(amountSpent);
+        }
+
+        if (transactionType === 'income' && amountReceived !== '-') {
+            currentIncome += parseFloat(amountReceived);
+        }
+
+        // Update the values in the indexpro1.html page
+        document.getElementById('incomediv').querySelector('strong').innerHTML = '&#8377;' + currentIncome.toFixed(2);
+        document.getElementById('expensediv').querySelector('strong').innerHTML = '&#8377;' + currentExpenditure.toFixed(2);
+    }
 
 });
