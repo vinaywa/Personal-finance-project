@@ -40,4 +40,55 @@ document.getElementById('expenditureForm').addEventListener('submit', function (
     
 });
 
+// Function to add a new row to the transaction table
+function addRowToTable(description, amountSpent, amountReceived, date, transactionType) {
+    var table = document.getElementById('transactionTable');
+
+    // Check if a row with the same data already exists
+    if (isDuplicateRow(description, amountSpent, amountReceived, date)) {
+        alert('This transaction already exists.');
+        return;
+    }
+
+    // Create a new row
+    var newRow = table.insertRow(1);
+
+    // Insert cells
+    var descriptionCell = newRow.insertCell(0);
+    var amountSpentCell = newRow.insertCell(1);
+    var amountReceivedCell = newRow.insertCell(2);
+    var dateCell = newRow.insertCell(3);
+
+    // Set cell values
+    descriptionCell.innerHTML = description;
+    amountSpentCell.innerHTML = (amountSpent !== '-') ? '&#8377;' + amountSpent : '-';
+    amountReceivedCell.innerHTML = (amountReceived !== '-') ? '&#8377;' + amountReceived : '-';
+    dateCell.innerHTML = date;
+
+    // Update income and expenditure values
+    updateIncomeExpenditure(amountSpent, amountReceived, transactionType);
+}
+function updateIncomeExpenseDivs() {
+    var tableRows = document.querySelectorAll('#transactionTable tr:not(:first-child)');
+    var totalIncome = 0;
+    var totalExpense = 0;
+
+    tableRows.forEach(function (row) {
+        var cells = row.querySelectorAll('td');
+        var amountSpent = cells[1].innerHTML.replace('₹', '').trim();
+        var amountReceived = cells[2].innerHTML.replace('₹', '').trim();
+
+        if (amountSpent !== '-') {
+            totalExpense += parseFloat(amountSpent);
+        }
+
+        if (amountReceived !== '-') {
+            totalIncome += parseFloat(amountReceived);
+        }
+    });
+
+    document.getElementById('incomediv').querySelector('strong').innerHTML = '&#8377;' + totalIncome.toFixed(2);
+    document.getElementById('expensediv').querySelector('strong').innerHTML = '&#8377;' + totalExpense.toFixed(2);
+}
+
 });
