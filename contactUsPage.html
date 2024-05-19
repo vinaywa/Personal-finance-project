@@ -234,39 +234,39 @@
   }
   
       </style>
-        <script>
-            function cancelForm() {
-              alert("Form canceled");
-            }
-          
-            function submitForm() {
-        var contactForm = document.getElementById('contactForm');
-        
-        // Check if the form is valid before submitting
-        if (contactForm.checkValidity()) {
-          alert("Form submitted");
-          window.location.href = 'index.html';
-        } else {
-          // If the form is not valid, you can display an error message or handle it accordingly
-          alert("Form is not valid. Please fill in all required fields.");
-        }
+    <script>
+      function cancelForm() {
+        alert("Form canceled");
       }
-      
-      // Wait for the DOM to be ready
-      document.addEventListener('DOMContentLoaded', function () {
-        // Find the form by its ID
-        var contactForm = document.getElementById('contactForm');
-      
-        // Add a submit event listener to the form
-        contactForm.addEventListener('submit', function (event) {
-          // Prevent the default form submission behavior
-          event.preventDefault();
-      
-          // Call your submitForm function
-          submitForm();
-        });
-      });
-          </script>
+    
+      function submitForm() {
+  var contactForm = document.getElementById('contactForm');
+  
+  // Check if the form is valid before submitting
+  if (contactForm.checkValidity()) {
+    alert("Form submitted");
+    window.location.href = 'index.html';
+  } else {
+    // If the form is not valid, you can display an error message or handle it accordingly
+    alert("Form is not valid. Please fill in all required fields.");
+  }
+}
+
+// Wait for the DOM to be ready
+document.addEventListener('DOMContentLoaded', function () {
+  // Find the form by its ID
+  var contactForm = document.getElementById('contactForm');
+
+  // Add a submit event listener to the form
+  contactForm.addEventListener('submit', function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Call your submitForm function
+    submitForm();
+  });
+});
+    </script>
         </head>
       <body>
       <div class="background">
