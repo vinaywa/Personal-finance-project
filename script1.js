@@ -90,5 +90,57 @@ function updateIncomeExpenseDivs() {
     document.getElementById('incomediv').querySelector('strong').innerHTML = '&#8377;' + totalIncome.toFixed(2);
     document.getElementById('expensediv').querySelector('strong').innerHTML = '&#8377;' + totalExpense.toFixed(2);
 }
+function updateCharts() {
+    updatePieChart();
+    updateBarChart();
+    // Dispatch the custom event after updating the charts
+    var updateEvent = new Event('transactionsUpdated');
+    document.dispatchEvent(updateEvent);
+}
+
+// Function to update the pie chart
+// Function to update the pie chart
+function updatePieChart() {
+var pieCanvas = document.getElementById('div2');
+if (!pieCanvas) {
+    console.error('Pie canvas element not found');
+    return;
+}
+
+var pieCtx = pieCanvas;
+if (!pieCtx) {
+    console.error('Unable to get 2D context for pie canvas');
+    return;
+}
+
+// Clear previous background image
+pieCanvas.style.backgroundImage = 'none';
+
+var table = document.getElementById('transactionTable');
+var totalExpenditure = parseFloat(document.getElementById('expensediv').querySelector('strong').innerHTML.replace('₹', '').trim());
+var categoryExpenditures = calculateCategoryExpenditure(table);
+
+// Calculate the angles for each category
+var fuelAngle = (categoryExpenditures.fuel / totalExpenditure) * 360;
+var electricityAngle = (categoryExpenditures.electricity / totalExpenditure) * 360;
+var billsAngle = (categoryExpenditures.bills / totalExpenditure) * 360;
+var miscellaneousAngle = (categoryExpenditures.miscellaneous / totalExpenditure) * 360;
+
+// Adjust the conic gradient based on the angle ranges for each category
+var conicGradient = `repeating-conic-gradient(
+    from 0deg,
+    red 0deg ${fuelAngle}deg,
+    yellow ${fuelAngle}deg ${fuelAngle + electricityAngle}deg,
+    green ${fuelAngle + electricityAngle}deg ${fuelAngle + electricityAngle + billsAngle}deg,
+    blue ${fuelAngle + electricityAngle + billsAngle}deg ${fuelAngle + electricityAngle + billsAngle + miscellaneousAngle}deg,
+    red ${fuelAngle + electricityAngle + billsAngle + miscellaneousAngle}deg 360deg
+)`;
+
+// Apply the conic gradient to the pie chart container
+pieCanvas.style.backgroundImage = conicGradient;
+
+updateExistingPieChart(window.pieChart, categoryExpenditures);
+
+}
 
 });
