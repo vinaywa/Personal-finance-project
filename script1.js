@@ -317,5 +317,60 @@ function updateBarChart() {
         document.getElementById('incomediv').querySelector('strong').innerHTML = '&#8377;' + currentIncome.toFixed(2);
         document.getElementById('expensediv').querySelector('strong').innerHTML = '&#8377;' + currentExpenditure.toFixed(2);
     }
+// Function to save transactions to local storage
+function saveTransactions() {
+    var tableRows = document.querySelectorAll('#transactionTable tr:not(:first-child)');
+    var transactions = [];
+
+    tableRows.forEach(function (row) {
+        var cells = row.querySelectorAll('td');
+        transactions.push({
+            description: cells[0].innerHTML,
+            amountSpent: cells[1].innerHTML.replace('₹', '').trim(), // Remove currency symbol and trim spaces
+            amountReceived: cells[2].innerHTML.replace('₹', '').trim(), // Remove currency symbol and trim spaces
+            date: cells[3].innerHTML.trim(), // Trim spaces
+        });
+    });
+
+    // Save transactions to local storage
+    localStorage.setItem('transactions', JSON.stringify(transactions));
+
+    // Update the income and expense divs with the sum of the corresponding amounts
+    updateIncomeExpenseDivs();
+
+    // Dispatch a custom event to notify other parts of the application about the update
+    var updateEvent = new Event('transactionsUpdated');
+    //document.dispatchEvent(updateEvent);
+}
+
+// Function to load transactions from local storage on page load
+function loadTransactions() {
+    var transactions = localStorage.getItem('transactions');
+
+    if (transactions) {
+        transactions = JSON.parse(transactions);
+
+        // Sort transactions by date in descending order
+        transactions.sort(function (a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
+
+        // Clear existing rows from the table
+        clearTransactionTable();
+        transactions.reverse();
+
+        transactions.forEach(function (transaction) {
+            addRowToTable(
+                transaction.description,
+                transaction.amountSpent,
+                transaction.amountReceived,
+                transaction.date
+            );
+        });
+
+        // Update the income and expense divs with the sum of the corresponding amounts
+        updateIncomeExpenseDivs();
+    }
+}
 
 });
