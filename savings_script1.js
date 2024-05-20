@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
          return;
      }
 
-     // Add a new row to the savings goal table
      addRowToSavingsTable(description, amount, 0);
 
      // Save savings goals to local storage
